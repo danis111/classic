@@ -1,0 +1,107 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+  
+
+    <section class="hero">
+        <div class="hero--content">
+            <div class="hero--content--intro">
+                <img  id="profile_pic" src="{% static 'images/danis.jpg' %}"> 
+                <h1 class="intro--name">Huseyin <br> Danisman</h1>
+            
+            </div>
+            
+            <div class="hero--content--subheadline">
+                <h3 class="description">Data Analyst-Developer</h3>
+                <p class="slogan">I am a self-learner who makes projects and researches
+                   about data visualisation and SQL development.
+                </p>
+            </div>
+            
+        </div>
+
+        
+    </section>
+
+    <section class="container--section--2">
+        <div class="little--name">
+            <h3>My Projects</h3>
+            <h5>Things worth sharing</h5>
+        </div>
+        
+        
+        <div class="projects--wrapper">
+            {% for project in projects  %}
+            <div class="project--column">
+                <a href="{% url 'project' project.id %}">
+                <img class="project--thumbnail" src=" {{project.thumbnail.url}}">
+            </a>    
+                <div class="project--body">
+                    <h5>{{project.title}}</h5>
+                </div>
+            
+            </div>
+            {% empty %}
+                <h3>There are no projects in the database...</h3>
+            {% endfor %}
+        </div>
+        <div class="about--wrapper">
+            <h3>More About Me</h3>
+
+            <p>I am an enthusiastic, self-motivated,
+                reliable,responsible and hard working
+                engineer. I am a mature team worker and
+                adaptable to all challenging situations.
+                Loving to be part of a team and working
+                as an individual alone apart from team.
+                I am a self-learner and innovative person
+                who loves to make research about space,
+                datasicence and coding.</p>
+            <br>
+            <p>I am an enthusiastic, self-motivated,
+                reliable,responsible and hard working
+                engineer. I am a mature team worker and
+                adaptable to all challenging situations.
+                Loving to be part of a team and working
+                as an individual alone apart from team.
+                I am a self-learner and innovative person
+                who loves to make research about space,
+                datasicence and coding.</p>
+
+        </div>
+
+    </section>
+    <section class="section--1">
+        <div class="skills--container">
+            <h3>Programming Language</h3>
+            {% for skill in detailedSkills %}
+            
+            <div class="skill--wrapper" >
+                <h5>{{skill.title}}</h5>
+                <p>{{skill.body}}</p>
+            </div>    
+                    
+            
+            {% endfor %}    
+            <h3>Other Skills</h3>
+                  
+            <div class="other--skills--wrapper">
+                {% for skill in skills  %}
+                      
+                <div class="skill--tag">
+                    <span>{{skill.title}}</span>
+                </div>
+                
+                {% endfor %}        
+            </div>
+                    
+            
+        </div>
+        
+    
+    </section>
+    
+{% endblock content %}
+
+
+</html>

@@ -7,10 +7,9 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-
-        {% for field in form %}
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">{{field.label}}</label><br>
+    {% for field in form %}
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">{{field.label}}</label><br>
             {{field}}
         </div><br>
 

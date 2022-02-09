@@ -1,16 +1,26 @@
 
+from multiprocessing import context
 from django.shortcuts import redirect, render
-from .models import Project, Skill
+from .models import Message, Project, Skill
 # Create your views here.
-from .forms import ProjectForm
+from .forms import MessageForm, ProjectForm
+from django.contrib import messages
 
 
 def homePage(request):
     projects = Project.objects.all()
     detailedSkills = Skill.objects.exclude(body='')
+    form = MessageForm()
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your message was successfully sent!')
+            return redirect('home')
+
     skills = Skill.objects.filter(body='')
     context = {'projects': projects, 'skills': skills,
-               'detailedSkills': detailedSkills}
+               'detailedSkills': detailedSkills, 'form': form}
     return render(request, 'base/home.html', context)
 
 
@@ -43,3 +53,20 @@ def editProject(request, pk):
             return redirect('home')
     context = {'form': form}
     return render(request, 'base/project_form.html', context)
+
+
+def inboxPage(request):
+    inbox = Message.objects.all().order_by('is_read')
+    unreadCount = Message.objects.filter(is_read=False).count()
+    totalMessage = Message.objects.count()
+    context = {'inbox': inbox, 'unreadCount': unreadCount,
+               'totalMessage': totalMessage}
+    return render(request, 'base/inbox.html', context)
+
+
+def messagePage(request, pk):
+    message = Message.objects.get(id=pk)
+    message.is_read = True
+    message.save()
+    context = {'message': message}
+    return render(request, 'base/message.html', context)

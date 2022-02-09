@@ -9,14 +9,17 @@
             <a href="{% url 'home' %}" class="nav-links">Projects</a>
           </li>
           <li>
-            <a href="#" class="nav-links">Cources</a>
-          </li>
-          <li>
             <a href="#" class="nav-links">Contact</a>
+          </li>
+         
+          {% if request.user.is_authenticated %}
+          <li>
+            <a href="{% url 'inbox' %}" class="nav-links">Inbox</a>
           </li>
           <li>
             <a href="{% url 'add-project' %}" class="nav-links">Add Project</a>
           </li>
+          {% endif %}
           
         </ul>
    

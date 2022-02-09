@@ -209,6 +209,78 @@ li a:hover {
   color: #fff;
   background-color: crimson;
 }
+/* for message */
+
+.message-email {
+  margin: 1em;
+}
+
+.message-email p {
+  padding-top: 1em;
+  font-size: 1.2em;
+  font-family: bold;
+  color: crimson;
+}
+.message-email .text1 {
+  font-family: bold;
+  font-size: 1.5em;
+  color: black;
+}
+/* for message */
+
+.section--2 input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.section--2 input[type="text"]:focus {
+  background-color: rgb(160, 164, 167);
+}
+
+.section--2 input[type="submit"] {
+  width: 100%;
+  background-color: rgb(94, 92, 92);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.section--2 input[type="submit"]:hover {
+  background-color: blue;
+}
+
+.section--2 .form-label {
+  font-size: 1.5em;
+  font-family: bold;
+}
+.alert {
+  padding: 20px;
+  background-color: green;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: bold;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
 @media (max-width: 900px) {
   .hero--content--intro {

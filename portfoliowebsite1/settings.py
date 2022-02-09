@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# 'https://datacolic.herokuapp.com/'
 # Application definition
 
 INSTALLED_APPS = [

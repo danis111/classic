@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-j$jv2*er^ff%($+=%7k(kk_v!(ugo#y$5$bb2a06=4sw7c(&fn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['datacolic.herokuapp.com']
+ALLOWED_HOSTS = ['datadanis.herokuapp.com']
 
 # 'https://datacolic.herokuapp.com/'
 # Application definition
